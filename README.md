@@ -54,4 +54,4 @@ Siteyi başka bir adreste yayınlarsan, sitenin sonuna `/qr.html` ekleyip açara
 | `email` | "Evet" bildiriminin gideceği adres |
 | `music` | Çalacak mp3 dosyası ya da linki |
 | `questionCats` | Soru kartındaki kediler (normal → yalvaran → ağlayan) |
-| `happyCats` | "Evet" sonrası sevinen kediler (Tenor GIF'leri ya da kendi gif dosyaların) |
+| `happyCats` | "Evet" sonrası sevinen kediler (Tenor GIF'leri ya da kendi gif/mp4 dosyaların; ilki büyük gösterilir) |

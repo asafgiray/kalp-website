@@ -21,8 +21,9 @@ window.KALP_CONFIG = {
   ],
 
   // "Evet" sonrası ekranda beliren sevinen kediler. İlki büyük olarak ortada gösterilir.
+  // Kendi gif ya da mp4 dosyalarını da kullanabilirsin (örn. "assets/kedi.mp4").
   happyCats: [
-    "happy-happy-happy-happy-happy-cat-happy-happy-happy-cat-happy-happy-happy-cat-meme-gif-114449109236667146",
+    "assets/opucuk-kedi.mp4",
     "happy-happy-happy-cat-gif-12987138006651541996",
     "happy-happy-happy-happy-happy-cat-happy-dancing-cat-gif-17725371557386627543",
     "happy-cat-dancing-cat-excited-excited-cat-yay-cat-gif-12879238417633096553",

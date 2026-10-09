@@ -93,6 +93,7 @@ body::before {
 }
 
 .cat-media img,
+.cat-media video,
 .cat-media iframe,
 .card-cat img,
 .card-cat iframe {

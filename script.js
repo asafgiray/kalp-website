@@ -50,6 +50,20 @@
   function catMedia(src, alt) {
     const wrap = document.createElement("div");
     wrap.className = "cat-media";
+    if (/\.(mp4|webm)$/i.test(src)) {
+      // Videoyu GIF gibi oynat: sessiz, döngüde, iPhone'da tam ekrana geçmeden
+      const video = document.createElement("video");
+      video.muted = true;
+      video.loop = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.setAttribute("playsinline", "");
+      video.setAttribute("aria-label", alt);
+      video.src = src;
+      wrap.append(video);
+      video.play().catch(() => {});
+      return wrap;
+    }
     const img = new Image();
     img.alt = alt;
     img.decoding = "async";
