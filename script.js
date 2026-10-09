@@ -16,7 +16,6 @@
   const celebration = $("#celebration");
   const yesBtn = $("#yes");
   const noBtn = $("#no");
-  const hint = $("#hint");
   const cardCat = $("#card-cat");
   const soundBtn = $("#sound");
   const confetti = $(".confetti");
@@ -107,14 +106,6 @@
 
   /* ---------- Kaçan "Hayır" butonu ---------- */
 
-  function hintFor(n) {
-    if (n === 1) return "Hmm, o butona basılmıyor galiba 🤭";
-    if (n < 4) return "Evet butonu sana el sallıyor 👋💖";
-    if (n < 8) return `Hayır'a basma denemesi: ${n} 😼`;
-    if (n < 12) return `${n} deneme oldu… Evet butonu büyüyor, farkında mısın? 👀`;
-    return `${n} deneme! Tamam inatçısın, ama ben daha inatçıyım 😌`;
-  }
-
   function freeNoButton() {
     if (freed) return;
     freed = true;
@@ -190,7 +181,6 @@
     noBtn.classList.add("wiggle");
 
     growYes();
-    hint.textContent = hintFor(attempts);
     showCardCat(attempts >= 8 ? 2 : attempts >= 3 ? 1 : 0);
   }
 
