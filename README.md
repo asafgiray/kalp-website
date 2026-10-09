@@ -55,3 +55,6 @@ Siteyi başka bir adreste yayınlarsan, sitenin sonuna `/qr.html` ekleyip açara
 | `music` | Çalacak mp3 dosyası ya da linki |
 | `questionCats` | Soru kartındaki kediler (normal → yalvaran → ağlayan) |
 | `happyCats` | "Evet" sonrası sevinen kediler (Tenor GIF'leri ya da kendi gif/mp4 dosyaların; ilki büyük gösterilir) |
+
+> `config.js`, `style.css` ya da `script.js`'i değiştirdiğinde `index.html` içindeki `?v=4` numaralarını bir artır
+> (örn. `?v=5`). Yoksa daha önce siteyi açmış telefonlar birkaç dakika eski dosyaları göstermeye devam edebilir.
