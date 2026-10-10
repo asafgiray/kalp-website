@@ -28,4 +28,10 @@ window.KALP_CONFIG = {
     "happy-cat-dancing-cat-gif-10117121347253311572",
     "cat-happy-cat-dancing-cat-dance-cat-meme-cats-gif-18148399523684423227",
   ],
+
+  // "Evet" sayfasının en altında hediye edilen şarkı (YouTube video kodu: watch?v= sonrası kısım)
+  song: {
+    youtubeId: "uceoU6FW3Dk",
+    title: "Madrigal – Bu Kalp Sana Ait",
+  },
 };

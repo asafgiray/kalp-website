@@ -355,10 +355,12 @@
 
   /* ---------- Evet! ---------- */
 
-  function confettiBurst(count) {
+  const CONFETTI = ["💖", "💕", "😻", "😸", "🐱", "✨", "🎉", "💘", "🐾"];
+
+  function confettiBurst(count, emojis = CONFETTI) {
     for (let i = 0; i < count; i++) {
       const s = document.createElement("span");
-      s.textContent = pick(["💖", "💕", "😻", "😸", "🐱", "✨", "🎉", "💘", "🐾"]);
+      s.textContent = pick(emojis);
       s.style.setProperty("--x", `${rand(0, 100)}vw`);
       s.style.setProperty("--size", `${rand(18, 38)}px`);
       s.style.setProperty("--dur", `${rand(3, 6.5)}s`);
@@ -368,6 +370,62 @@
       s.addEventListener("animationend", () => s.remove());
       confetti.append(s);
     }
+  }
+
+  /* ---------- Hediye şarkı ---------- */
+
+  function setupSong() {
+    const song = cfg.song || {};
+    const gift = $("#gift");
+    if (!song.youtubeId) {
+      gift.remove();
+      return;
+    }
+    $("#gift-song").textContent = `🎶 ${song.title || ""} 🎶`;
+
+    const embedFallback = () => {
+      const frame = document.createElement("iframe");
+      frame.src = `https://www.youtube.com/embed/${song.youtubeId}?playsinline=1&rel=0`;
+      frame.title = song.title || "Şarkı";
+      frame.allow = "autoplay; encrypted-media; picture-in-picture";
+      frame.allowFullscreen = true;
+      $("#yt-player").replaceWith(frame);
+    };
+    // Şarkı başlayınca arkadaki kedi müziğini sustur
+    window.onYouTubeIframeAPIReady = () => {
+      new YT.Player("yt-player", {
+        videoId: song.youtubeId,
+        playerVars: { playsinline: 1, rel: 0 },
+        events: {
+          onStateChange: (e) => {
+            if (e.data === YT.PlayerState.PLAYING && !muted) setMuted(true);
+          },
+        },
+      });
+    };
+    const api = document.createElement("script");
+    api.src = "https://www.youtube.com/iframe_api";
+    api.onerror = embedFallback;
+    document.head.append(api);
+
+    // En altta kaldığı için bir "hediyen var" butonu dikkat çeksin
+    const hint = $("#gift-hint");
+    let seen = false;
+    hint.addEventListener("click", () => gift.scrollIntoView({ behavior: "smooth", block: "center" }));
+    setTimeout(() => {
+      if (!seen) hint.hidden = false;
+    }, 4000);
+    new IntersectionObserver(
+      (entries, obs) => {
+        if (!entries[0].isIntersecting) return;
+        seen = true;
+        hint.hidden = true;
+        gift.classList.add("seen");
+        confettiBurst(25, ["🎵", "🎶", "💖", "🎁", "💘"]);
+        obs.disconnect();
+      },
+      { threshold: 0.35 }
+    ).observe(gift);
   }
 
   function celebrate() {
@@ -392,6 +450,7 @@
     celebration.hidden = false;
     soundBtn.hidden = false;
     scrollTo(0, 0);
+    setupSong();
 
     confettiBurst(60);
     setInterval(() => {

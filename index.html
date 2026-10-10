@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
   <div class="hearts" aria-hidden="true"></div>
@@ -40,12 +40,20 @@
     <p class="sub">Artık resmen sevgiliyiz!</p>
     <div class="cat-grid" id="cat-grid"></div>
     <p class="sub love">Seni çok seviyorum 💘</p>
+
+    <div class="gift" id="gift">
+      <div class="gift-icon" aria-hidden="true">🎁</div>
+      <p class="gift-title">Bu şarkıyı sana hediye ediyorum</p>
+      <p class="gift-song" id="gift-song"></p>
+      <div class="gift-video"><div id="yt-player"></div></div>
+    </div>
   </section>
 
+  <button id="gift-hint" class="gift-hint" type="button" hidden>🎁 Sana bir hediyem var <span aria-hidden="true">↓</span></button>
   <button id="sound" class="sound" type="button" aria-label="Sesi kapat" hidden>🔊</button>
   <div class="confetti" aria-hidden="true"></div>
 
-  <script src="config.js?v=4"></script>
-  <script src="script.js?v=4"></script>
+  <script src="config.js?v=5"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>
